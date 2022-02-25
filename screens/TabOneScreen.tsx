@@ -12,28 +12,38 @@ export default function TabOneScreen({
 }: RootTabScreenProps<'TabOne'>) {
 	const { isLoadingComplete, categories } = useSockCategories();
 
-	console.log(categories);
-
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Weave Shop Front end</Text>
-			{categories.map((x, index) => (
-				<div
-					key={`${x.id}`}
-					style={{
-						margin: 20,
-						textAlign: 'left',
-					}}
-				>
-					<Text style={styles.subtitle}>{x.name}</Text>
-					<br />
-					<Text key={x.id} style={styles.subtitle2}>
-						{x.description}
-					</Text>
-					<br />
-					<Image style={styles.img} source={`${API_ENDPOINT}${x.imageUrl[0]}`}></Image>
-				</div>
-			))}
+			{isLoadingComplete ? (
+				<View>
+					<Text style={styles.title}>Weave Shop Front end</Text>
+					{categories.map((x, index) => (
+						<View
+							key={`${x.id}`}
+							style={{
+								margin: 20,
+								textAlign: 'left',
+							}}
+						>
+							<Text style={styles.subtitle}>{x.name}</Text>
+							<Text key={x.id} style={styles.subtitle2}>
+								{x.description}
+							</Text>
+							<View style={styles.imgContainer}>
+								<Image
+									style={styles.img}
+									source={{
+										uri: `${API_ENDPOINT}${x.imageUrl[0]}`,
+									}}
+								></Image>
+							</View>
+						</View>
+					))}
+				</View>
+			) : (
+				<Text>Loading Categories..</Text>
+			)}
+
 			<View
 				style={styles.separator}
 				lightColor='#eee'
@@ -48,7 +58,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	title: {
-    margin: 20,
+		margin: 20,
 		fontSize: 20,
 		fontWeight: 'bold',
 		marginBottom: 30,
@@ -68,10 +78,14 @@ const styles = StyleSheet.create({
 		marginVertical: 30,
 		height: 1,
 		width: '80%',
-  },
-  img: {
-    width: 150,
-    height: 150,
-    marginTop: 10
-  },
+	},
+	img: {
+		width: 150,
+		height: 150,
+	},
+	imgContainer: {
+		marginTop: 10,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 });
