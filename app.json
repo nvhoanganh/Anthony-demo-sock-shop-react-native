@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "Anthony-demo-sock-shop",
-    "slug": "Anthony-demo-sock-shop",
+    "name": "Weave Socks",
+    "plugins": ["newrelic"],
+    "slug": "weave-sock-shop",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,9 +20,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.avtatour.weavesocks"
     },
     "android": {
+      "package": "com.avtatour.weavesocks",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
