@@ -1,6 +1,6 @@
 # Set up NewRelic on React Native app developed using Expo Managed workflow (Tested on iOS)
 
-## Create a new expo app (iOS on Macbook M1 Pro 2022)
+## Create a new expo app
 
 ```bash
 
