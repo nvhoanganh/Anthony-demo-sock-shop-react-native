@@ -1,5 +1,6 @@
 package com.avtatour.weavesocks;
 
+import com.newrelic.agent.android.NewRelic;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -52,6 +53,7 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    NewRelic.withApplicationToken("AA93be4cf0f7329a03c98253e0912f012e1dfe18f9-NRMA").start(this.getApplication());
     SoLoader.init(this, /* native exopackage */ false);
 
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
