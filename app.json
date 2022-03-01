@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Weave Socks",
-    "plugins": ["@bibabovn/react-native-newrelic"],
+    "plugins": ["expo-camera"],
     "slug": "weave-sock-shop",
     "version": "1.0.0",
     "orientation": "portrait",
