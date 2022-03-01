@@ -81,3 +81,26 @@ npm run ios
 
 -   open one.newrelic.com, you should see your app under `Explorer/Mobile applications`
 ![](2022-03-01-15-42-38.png)
+
+## Deploy your app to iOS store
+
+```bash
+# install EAS tool
+npm install -g eas-cli && eas login
+
+# build IOS app, this will login to Apple Developer account, sign the app and build it in Expo Cloud
+eas build --platform ios
+
+# once done, submit the app to app store, this will guide you through the process of submitting your app to Apple App Store
+eas submit -p ios
+```
+
+## Build Android version
+
+```bash
+# build AAB file which is used for submitting to Android App Store
+eas build -p android
+
+# you can also build it in APK format if you want to download and test it before submitting to the app store, check out the build profile in app.json
+eas build -p android --profile preview
+```
