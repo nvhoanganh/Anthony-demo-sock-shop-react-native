@@ -1,4 +1,10 @@
-import { StyleSheet, Button, SafeAreaView, ScrollView } from 'react-native';
+import {
+	StyleSheet,
+	Button,
+	SafeAreaView,
+	ScrollView,
+	Alert,
+} from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View, Image } from '../components/Themed';
 import { useSockCategories } from '../hooks/useSockCategories';
@@ -10,6 +16,15 @@ export default function TabOneScreen({
 	navigation,
 }: RootTabScreenProps<'TabOne'>) {
 	const { isLoadingComplete, categories } = useSockCategories();
+	const addToCart = (x) => {
+		const remaining = x.count - 1;
+		if (remaining === 0) {
+			throw new Error(`There will be 0 left if you purchase this item`);
+		}
+		Alert.alert(
+			`${x.name}\n\n${x.description} \n\nItems Remaining: ${x.count}`
+		);
+	};
 
 	return (
 		<SafeAreaView style={styles.container}>
@@ -48,11 +63,8 @@ export default function TabOneScreen({
 									<View style={styles.container}>
 										<Button
 											title='Add to Cart'
-											onPress={() =>
-												Alert.alert(
-													`${x.name}: ${x.description}`
-												)
-											}
+											backgroundColor='blue'
+											onPress={() => addToCart(x)}
 										/>
 									</View>
 								</View>
@@ -105,8 +117,8 @@ const styles = StyleSheet.create({
 		width: '80%',
 	},
 	img: {
-		width: 400,
-		height: 400,
+		width: 300,
+		height: 300,
 	},
 	imgContainer: {
 		marginTop: 10,
