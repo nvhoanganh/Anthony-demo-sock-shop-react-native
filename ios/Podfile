@@ -24,7 +24,7 @@ target 'WeaveSocks' do
     # use_flipper!()
 
     # this doesn't work
-    use_flipper!({'Flipper' => '0.141', 'Flipper-Folly' => '2.6.10'})
+    use_flipper!({'Flipper' => '0.140', 'Flipper-Folly' => '2.6.10'})
   end
 
   post_install do |installer|
