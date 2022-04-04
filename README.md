@@ -80,7 +80,13 @@ npm run ios
 ```
 
 -   open one.newrelic.com, you should see your app under `Explorer/Mobile applications`
-![](2022-03-01-15-42-38.png)
+    ![](2022-03-01-15-42-38.png)
+
+## Debug React Native app using Flipper
+
+-   Download and install the latest Flipper desktop app from https://fbflipper.com
+-   run app again using `npm run ios`
+-   open Flipper app, you should be able to see logs, network calls and the layout of your React Native app
 
 ## Deploy your app to iOS store
 
