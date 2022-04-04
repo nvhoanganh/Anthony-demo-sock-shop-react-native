@@ -17,6 +17,8 @@ export default function TabOneScreen({
 }: RootTabScreenProps<'TabOne'>) {
 	const { isLoadingComplete, categories } = useSockCategories();
 	const addToCart = (x) => {
+		console.log(`Adding item to cart: ${x.description}`);
+
 		const remaining = x.count - 1;
 		if (remaining === 0) {
 			throw new Error(`There will be 0 left if you purchase this item`);
