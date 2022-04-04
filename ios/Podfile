@@ -21,14 +21,14 @@ target 'WeaveSocks' do
   #
   if !ENV['CI']
     # this works but it installed the 'Flipper' => '0.75.1' version
-    use_flipper!()
+    # use_flipper!()
 
     # this doesn't work
-    # use_flipper!({'Flipper' => '0.138', 'Flipper-Folly' => '2.6.10'})
+    use_flipper!({'Flipper' => '0.141', 'Flipper-Folly' => '2.6.10'})
   end
 
   post_install do |installer|
-    react_native_post_install(installer)
+    flipper_post_install(installer)
 
     # Workaround `Cycle inside FBReactNativeSpec` error for react-native 0.64
     # Reference: https://github.com/software-mansion/react-native-screens/issues/842#issuecomment-812543933
