@@ -46,10 +46,10 @@ export default function TabOneScreen({
 									<Text style={styles.subtitle}>
 										{x.name} - ${x.price}
 									</Text>
-									<Text key={x.id} style={styles.subtitle2}>
+									<Text style={styles.subtitle2}>
 										{x.description}
 									</Text>
-									<Text key={x.id} style={styles.subtitle2}>
+									<Text style={styles.subtitle2}>
 										{x.count} in stock
 									</Text>
 									<View style={styles.imgContainer}>
