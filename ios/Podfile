@@ -20,11 +20,7 @@ target 'WeaveSocks' do
   # Uncomment to opt-in to using Flipper
   #
   if !ENV['CI']
-    # use_flipper!({'Flipper' => '0.75.1', 'Flipper-Folly' => '2.5.3'})
-    # use_flipper!({ 'Flipper' => '0.140.0', 'Flipper-Folly' => '2.6.10', 'Flipper-DoubleConversion' => '3.2.0', 'Flipper-Glog' => '0.5.0.3', 'Flipper-PeerTalk' => '0.0.4', 'OpenSSL-Universal' => '1.1.1100' })
-    # use_flipper!({ 'Flipper' => '0.140.0', 'Flipper-Folly' => '2.6.10' })
-
-    # this works
+    # this works but it installed the 'Flipper' => '0.75.1' version
     use_flipper!()
 
     # this doesn't work
