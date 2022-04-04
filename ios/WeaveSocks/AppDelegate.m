@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import <NewRelic/NewRelic.h>
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -29,7 +28,6 @@ static void InitializeFlipper(UIApplication *application) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [NewRelic startWithApplicationToken:@"AAb47741c3bfa82c25ed8bf0c2fe336b668e488d07-NRMA"];
 #if defined(FB_SONARKIT_ENABLED) && __has_include(<FlipperKit/FlipperClient.h>)
   InitializeFlipper(application);
 #endif
