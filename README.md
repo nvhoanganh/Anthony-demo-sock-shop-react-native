@@ -14,6 +14,9 @@ expo init weavesock-shop-mobile
 cd weavesock-shop-mobile
 npm run ios
 
+# install npm dependencies
+npm i newrelic-react-native-agent
+
 # run expo prebuild command
 expo prebuild --clean
 
@@ -35,26 +38,17 @@ pod install
 -   Login to one.newrelic.com, click on `Add More Data`, search for Mobile, select XCFramework
 -   On the next screen, enter name for your app
 -   Select `CocoaPods` as installation method
--   Scroll to step 4 and copy this line
--   `[NewRelic startWithApplicationToken:@"YOUR_UNIQUE_TOKEN"];`
--   Modify `AppDelegate.m` file founder under the `ios\weavesock-shop-mobile` folder and add the following to line 2
+-   Scroll to step 4 and copy your YOUR_UNIQUE_TOKEN from this line `[NewRelic startWithApplicationToken:@"YOUR_UNIQUE_TOKEN"];`
+-   Modify `index.js` root file and add the follow lines
 
-```h
-#import "AppDelegate.h"
-// line 2
-#import <NewRelic/NewRelic.h>
+```javascript
+import * as appVesrion from './package.json';
+import NewRelic from 'newrelic-react-native-agent'
+NewRelic.startAgent("AA8f0d153e428310876eac4255ba2abf6f75575c78-NRMA");
+NewRelic.setJSAppVersion(appVesrion.version);
+
+registerRootComponent(App);
 ```
-
--   Modify `AppDelegate.m` file founder under the `ios\weavesock-shop-mobile` folder and add the following to `didFinishLaunchingWithOptions` method
-
-```h
-@implementation AppDelegate
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-  [NewRelic startWithApplicationToken:@"YOUR_UNIQUE_TOKEN"];
-```
-
 -   open XCode by running the following command
 
 ```bash
