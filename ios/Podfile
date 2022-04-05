@@ -20,10 +20,6 @@ target 'WeaveSocks' do
   # Uncomment to opt-in to using Flipper
   #
   if !ENV['CI']
-    # this works but it installed the 'Flipper' => '0.75.1' version
-    # use_flipper!()
-
-    # this doesn't work
     use_flipper!({'Flipper' => '0.140', 'Flipper-Folly' => '2.6.10'})
   end
 

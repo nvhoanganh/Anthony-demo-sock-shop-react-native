@@ -43,12 +43,13 @@ pod install
 
 ```javascript
 import * as appVesrion from './package.json';
-import NewRelic from 'newrelic-react-native-agent'
-NewRelic.startAgent("AA8f0d153e428310876eac4255ba2abf6f75575c78-NRMA");
+import NewRelic from 'newrelic-react-native-agent';
+NewRelic.startAgent('AA8f0d153e428310876eac4255ba2abf6f75575c78-NRMA');
 NewRelic.setJSAppVersion(appVesrion.version);
 
 registerRootComponent(App);
 ```
+
 -   open XCode by running the following command
 
 ```bash
@@ -79,8 +80,24 @@ npm run ios
 ## Debug React Native app using Flipper
 
 -   Download and install the latest Flipper desktop app from https://fbflipper.com
--   run app again using `npm run ios`
+-   Edit `Podfile` as following
+
+```ruby
+if !ENV['CI']
+    use_flipper!({'Flipper' => '0.140', 'Flipper-Folly' => '2.6.10'})
+end
+
+post_install do |installer|
+# make sure it is `flipper_post_install`
+flipper_post_install(installer)
+# other lines of code
+
+```
+
+-   run `pod install` again from inside the ios folder
+-   run `npm run ios` again
 -   open Flipper app, you should be able to see logs, network calls and the layout of your React Native app
+![](2022-04-05-12-35-26.png)
 
 ## Deploy your app to iOS store
 
