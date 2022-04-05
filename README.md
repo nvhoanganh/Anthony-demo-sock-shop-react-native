@@ -88,9 +88,9 @@ if !ENV['CI']
 end
 
 post_install do |installer|
-# make sure it is `flipper_post_install`
-flipper_post_install(installer)
-# other lines of code
+    # make sure it is `flipper_post_install`
+    flipper_post_install(installer)
+    # other lines of code
 
 ```
 
