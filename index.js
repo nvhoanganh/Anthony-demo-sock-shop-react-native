@@ -7,7 +7,7 @@ import App from './App';
 
 import * as appVesrion from './package.json';
 import NewRelic from 'newrelic-react-native-agent'
-NewRelic.startAgent("AA8f0d153e428310876eac4255ba2abf6f75575c78-NRMA");
+NewRelic.startAgent("AAb47741c3bfa82c25ed8bf0c2fe336b668e488d07-NRMA");
 NewRelic.setJSAppVersion(appVesrion.version);
 
 registerRootComponent(App);
